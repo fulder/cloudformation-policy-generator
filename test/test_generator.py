@@ -1,6 +1,6 @@
 import unittest
 
-from generator import PolicyGenerator
+from generate import PolicyGenerator
 
 
 class TestGenerator(unittest.TestCase):
