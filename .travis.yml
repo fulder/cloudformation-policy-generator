@@ -26,9 +26,9 @@ matrix:
 
 install:
   - pip install -r requirements.txt
+  - pip install -U coverage nose coveralls
 
 script:
-  - pip install -U coverage nose coveralls
   - nosetests --with-coverage --cover-package policy_generator
 
 after_sucess:
