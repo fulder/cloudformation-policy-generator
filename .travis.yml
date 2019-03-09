@@ -33,7 +33,7 @@ matrix:
 
 install:
   - pip install -r requirements.txt
-  - pip install -U $PACKAGES
+  - pip install -U coverage nose python-coveralls
 
 script:
   - nosetests --with-coverage --cover-package policy_generator
