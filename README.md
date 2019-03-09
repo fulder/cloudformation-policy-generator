@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/fulder/cloudformation-policy-generator.svg?branch=master)](https://travis-ci.com/fulder/cloudformation-policy-generator)
 [![Coverage Status](https://coveralls.io/repos/github/fulder/cloudformation-policy-generator/badge.svg?branch=master)](https://coveralls.io/github/fulder/cloudformation-policy-generator?branch=master)
 
 # Python versions
