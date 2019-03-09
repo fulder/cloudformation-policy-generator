@@ -12,4 +12,4 @@ install:
   - pip install -r requirements.txt
 script:
   - pip install coverage nose
-  - nosetests --with-coverage --cover-package generate
+  - nosetests --with-coverage --cover-package policy_generator
