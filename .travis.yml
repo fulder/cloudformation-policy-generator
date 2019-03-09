@@ -32,4 +32,4 @@ script:
   - nosetests --with-coverage --cover-package policy_generator
 
 after_sucess:
-  coveralls
+  - coveralls
