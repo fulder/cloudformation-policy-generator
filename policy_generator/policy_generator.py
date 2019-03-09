@@ -32,7 +32,7 @@ class PolicyGenerator:
     def _add_policy_statement(self, res_name, res, actions, resource):
         res_type = res["Type"].split("AWS::")[1].replace("::", "-")
         self.policy["Statements"].append({
-            "Sid": "Policy-Generator-{}-{}".format(res_type, res_name),
+            "Sid": "Policy-Generator-{0}-{1}".format(res_type, res_name),
             "Statement": {
                 "Effect": "Allow",
                 "Action": actions,
