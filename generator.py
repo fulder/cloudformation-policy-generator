@@ -47,7 +47,7 @@ class PolicyGenerator:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="CloudFormation Generator")
-    parser.add_argument("-f", "--file", help="Path to the CloudFormation template", required=True)
+    parser.add_argument("-f", "--file", help="Path to the CloudFormation JSON/YAML template", required=True)
     parser.add_argument("-o", "--out", help="Save output to the specified file")
     args = parser.parse_args()
 
@@ -56,6 +56,6 @@ if __name__ == "__main__":
 
     if args.out is not None:
         with open(args.out, "w") as outfile:
-            json.dump(generated_policy, outfile)
+            json.dump(generated_policy, outfile, indent=4)
     else:
         print(generated_policy)
