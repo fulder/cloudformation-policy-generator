@@ -2,24 +2,24 @@ dist: xenial
 language: python
 matrix:
   include:
-    - python: 2.6
-      dist: trusty
-      sudo: false
-    - python: 2.7
-      dist: trusty
-      sudo: false
-    - python: 3.3
-      dist: trusty
-      sudo: false
-    - python: 3.4
-      dist: trusty
-      sudo: false
-    - python: 3.5
-      dist: trusty
-      sudo: false
-    - python: 3.6
-      dist: trusty
-      sudo: false
+#    - python: 2.6
+#      dist: trusty
+#      sudo: false
+#    - python: 2.7
+#      dist: trusty
+#      sudo: false
+#    - python: 3.3
+#      dist: trusty
+#      sudo: false
+#    - python: 3.4
+#      dist: trusty
+#      sudo: false
+#    - python: 3.5
+#      dist: trusty
+#      sudo: false
+#    - python: 3.6
+#      dist: trusty
+#      sudo: false
     - python: 3.7
       dist: xenial
       sudo: true
@@ -30,7 +30,6 @@ install:
 
 script:
   - nosetests --with-coverage --cover-package policy_generator
-  - coveralls
 
 after_sucess:
   coveralls
