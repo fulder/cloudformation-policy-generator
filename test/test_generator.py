@@ -6,7 +6,7 @@ from generate import PolicyGenerator
 class TestGenerator(unittest.TestCase):
 
     def setUp(self):
-        self.cloudformation: dict = {
+        self.cloudformation = {
             "AWSTemplateFormatVersion": "2010-09-09"
         }
 
