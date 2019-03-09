@@ -1,3 +1,4 @@
+from __future__ import annotations
 import argparse
 import json
 import logging
@@ -11,21 +12,21 @@ class PolicyGenerator:
 
     def __init__(self, cloud_formation: dict):
         self.cloud_formation = cloud_formation
-        self.policy: dict = {"Version": "2012-10-17", "Statements": []}
+        self.policy = {"Version": "2012-10-17", "Statements": []}
 
-    def generate(self):
+    def generate(self) -> dict:
         for resource_name in self.cloud_formation["Resources"]:
             logger.debug("Generating policy for resource: [%s]", resource_name)
 
-            res: dict = self.cloud_formation["Resources"][resource_name]
+            res = self.cloud_formation["Resources"][resource_name]
             logger.debug("Resource type: [%s]", res["Type"])
 
             if res["Type"] == "AWS::S3::Bucket":
-                self.s3_bucket(resource_name, res)
+                self._s3_bucket(resource_name, res)
 
         return self.policy
 
-    def s3_bucket(self, name, res):
+    def _s3_bucket(self, name: str, res: dict):
         resource = "*"
         if "BucketName" in res:
             resource = "arn:aws:s3:::{}".format(res["BucketName"])
@@ -51,8 +52,8 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--out", help="Save output to the specified file")
     args = parser.parse_args()
 
-    cloud_formation_dict: dict = yaml.safe_load(open(args.file, "r"))
-    generated_policy: dict = PolicyGenerator(cloud_formation_dict).generate()
+    cloud_formation_dict = yaml.safe_load(open(args.file, "r"))
+    generated_policy = PolicyGenerator(cloud_formation_dict).generate()
 
     if args.out is not None:
         with open(args.out, "w") as outfile:
