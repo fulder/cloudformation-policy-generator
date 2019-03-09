@@ -1,5 +1,7 @@
+[![Coverage Status](https://coveralls.io/repos/github/fulder/cloudformation-policy-generator/badge.svg?branch=master)](https://coveralls.io/github/fulder/cloudformation-policy-generator?branch=master)
+
 # Python versions
-2.7, 3.4+
+2.6, 2.7, 3.3+
 
 # Installation
 
