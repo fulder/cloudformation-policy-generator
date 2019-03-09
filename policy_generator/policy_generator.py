@@ -24,7 +24,7 @@ class PolicyGenerator:
     def _s3_bucket(self, name, res):
         resource = "*"
         if "BucketName" in res:
-            resource = "arn:aws:s3:::{}".format(res["BucketName"])
+            resource = "arn:aws:s3:::{0}".format(res["BucketName"])
 
         actions = ["s3:CreateBucket", "s3:DeleteBucket"]
         self._add_policy_statement(name, res, actions, resource)
