@@ -30,6 +30,7 @@ install:
 
 script:
   - nosetests --with-coverage --cover-package policy_generator
+  - coveralls
 
 after_sucess:
   coveralls
