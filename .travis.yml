@@ -5,31 +5,24 @@ matrix:
     - python: 2.6
       dist: trusty
       sudo: false
-      env: PACKAGES=coverage nose
     - python: 2.7
       dist: trusty
       sudo: false
-      env: PACKAGES=coverage nose
     - python: 3.3
       dist: trusty
       sudo: false
-      env: PACKAGES=coverage nose
     - python: 3.4
       dist: trusty
       sudo: false
-      env: PACKAGES=coverage nose
     - python: 3.5
       dist: trusty
       sudo: false
-      env: PACKAGES=coverage nose
     - python: 3.6
       dist: trusty
       sudo: false
-      env: PACKAGES=coverage nose
     - python: 3.7
       dist: xenial
       sudo: true
-      env: PACKAGES=coverage nose coveralls
 
 install:
   - pip install -r requirements.txt
