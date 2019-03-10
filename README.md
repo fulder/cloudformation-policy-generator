@@ -15,7 +15,7 @@ To deploy the IAM Role CloudFormation the following policy actions are needed:
 ## Why/When to use this generator
 If you want to have an IAM role with more strict permissions only allowing to deploy a specific CloudFormation instead of always running with full Administrator permissions.
 
-It can somehow be hard to know exacly what permissions are needed for a resource. As an example creating a VPC lambda, the role need to be allowed `lambda:CreateFunction`, `lambda:DeleteFunction` but also e.g. `ec2:ReleaseAddress` to release the elastic IP address given to the lambda in the background and when the CloudFormation need to rollback.
+It can somehow be hard to know exacly what permissions are needed for a resource. As an example creating a VPC lambda, the role need to be allowed `lambda:CreateFunction`, `lambda:DeleteFunction` but also e.g. `ec2:ReleaseAddress` to release the elastic IP address given to the lambda in the background and when the CloudFormation needs to rollback.
 
 # Implemented resources
 
