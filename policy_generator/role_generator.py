@@ -9,7 +9,7 @@ from policy_generator.resources.aws_lambda.function import LambdaFunction
 logger = logging.getLogger(__name__)
 
 
-class RoleGenerator(object):
+class RoleGenerator:
 
     def __init__(self, cloud_formation, region, account):
         self.cloud_formation = cloud_formation

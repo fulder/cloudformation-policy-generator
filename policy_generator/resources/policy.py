@@ -3,7 +3,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Policy:
+class Policy(object):
 
     def __init__(self, name, res, region=None, account=None):
         self.name = name
