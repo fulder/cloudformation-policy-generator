@@ -130,7 +130,8 @@ class TestGenerator(unittest.TestCase):
                     "Sid": "Policy-Generator-Lambda-Function-TestResource-Global",
                     "Statement": {
                         "Effect": "Allow",
-                        "Action": ["lambda:CreateFunction", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:DisassociateAddress"],
+                        "Action": ["lambda:CreateFunction", "ec2:AllocateAddress", "ec2:AssociateAddress",
+                                   "ec2:DisassociateAddress"],
                         "Resource": "*"
                     }
                 },

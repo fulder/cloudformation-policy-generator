@@ -6,7 +6,11 @@
 
 This generator reads a CloudFormation template and generates the needed IAM policy needed to deploy all the specified resources.
 
-While creating e.g. a VPC lambda the role need to be able to not only `lambda:CreateFunction` is required but also `lambda:DeleteFunction` if CloudFormation needs to be rolled back or `ec2:ReleaseAddress` to release the elastic IP address given to the lambda in the background.  
+While creating e.g. a VPC lambda the role need to be able to not only `lambda:CreateFunction` is required but also `lambda:DeleteFunction` if CloudFormation needs to be rolled back or `ec2:ReleaseAddress` to release the elastic IP address given to the lambda in the background.
+
+# Implemented resources
+
+See: [IMPLEMENTATED_RESOURCES.md](https://github.com/fulder/cloudformation-policy-generator/blob/master/README.md) for a list of currently implemented resources.
 
 # Python versions
 2.6, 2.7, 3.3+

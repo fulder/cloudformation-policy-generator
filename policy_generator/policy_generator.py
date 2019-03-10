@@ -18,10 +18,10 @@ class PolicyGenerator:
             res = self.cloud_formation["Resources"][resource_name]
             logger.debug("Resource type: [%s]", res["Type"])
 
-            if res["Type"] == "AWS::S3::Bucket":
-                self._s3_bucket(resource_name, res)
             if res["Type"] == "AWS::Lambda::Function":
                 self._lambda_function(resource_name, res)
+            if res["Type"] == "AWS::S3::Bucket":
+                self._s3_bucket(resource_name, res)
 
         return self.policy
 
