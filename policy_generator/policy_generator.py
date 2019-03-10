@@ -12,18 +12,34 @@ class PolicyGenerator:
         self.policy = {"Version": "2012-10-17", "Statements": []}
 
     def generate(self):
+        self._cloud_formation()
+
         for resource_name in self.cloud_formation["Resources"]:
             logger.debug("Generating policy for resource: [%s]", resource_name)
 
             res = self.cloud_formation["Resources"][resource_name]
             logger.debug("Resource type: [%s]", res["Type"])
 
+            if res["Type"] == "AWS::EC2::Instance":
+                self._ec2_instance(resource_name, res)
             if res["Type"] == "AWS::Lambda::Function":
                 self._lambda_function(resource_name, res)
             if res["Type"] == "AWS::S3::Bucket":
                 self._s3_bucket(resource_name, res)
 
         return self.policy
+
+    def _cloud_formation(self):
+        resource = "*"
+        actions = ["cloudformation:CreateStack", "cloudformation:UpdateStack", "cloudformation:DescribeStacks"]
+        self.policy["Statements"].append({
+            "Sid": "Policy-Generator-CloudFormation",
+            "Statement": {
+                "Effect": "Allow",
+                "Action": actions,
+                "Resource": resource
+            }
+        })
 
     def _s3_bucket(self, name, res):
         resource = "*"
@@ -37,7 +53,7 @@ class PolicyGenerator:
         resource = "*"
         actions = ["lambda:CreateFunction"]
         if "VpcConfig" in res:
-            actions += ["ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:DisassociateAddress"]
+            actions += ["ec2:AllocateAddress", "ec2:ReleaseAddress", "ec2:DescribeAddresses"]
         self._add_policy_statement(name, res, actions, resource, name_suffix="Global")
 
         resource = "*"
@@ -45,6 +61,11 @@ class PolicyGenerator:
             resource = "arn:aws:lambda:{0}:{1}:function:{2}".format(self.region, self.account, res["FunctionName"])
         actions = ["lambda:DeleteFunction"]
         self._add_policy_statement(name, res, actions, resource)
+
+    def _ec2_instance(self, name, res):
+        actions = ["ec2:RunInstances"]
+
+        # passRole!
 
     def _add_policy_statement(self, res_name, res, actions, resource, name_suffix=None):
         res_type = res["Type"].split("AWS::")[1].replace("::", "-")
