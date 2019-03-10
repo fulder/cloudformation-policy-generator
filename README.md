@@ -7,6 +7,8 @@
 This generator reads a CloudFormation template and generates a new CloudFormation only with an IAM role with all policies needed to deploy the initial CloudFormation.
 
 To deploy the IAM Role CloudFormation the following policy actions are needed:
+* `cloudFormation:CreateStack`
+* `cloudFormation:UpdateStack`
 * `iam:CreateRole` 
 * `iam::DeleteRole`
 
