@@ -10,7 +10,7 @@ To deploy the IAM Role CloudFormation the following policy actions are needed:
 * `cloudFormation:CreateStack`
 * `cloudFormation:UpdateStack`
 * `iam:CreateRole` 
-* `iam::DeleteRole`
+* `iam:DeleteRole`
 
 ## Why/When to use this generator
 If you want to have an IAM role with more strict permissions only allowing to deploy a specific CloudFormation instead of always running with full Administrator permissions.
