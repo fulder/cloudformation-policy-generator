@@ -2,6 +2,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/fulder/cloudformation-policy-generator/badge.svg?branch=master)](https://coveralls.io/github/fulder/cloudformation-policy-generator?branch=master)
 [![Python Version](https://img.shields.io/badge/python-2.6%2C2.7%2C3.3%2B-blue.svg)](https://www.python.org/)
 
+# Table of Contents
+1. [Description](#description)
+2. [Implemented resources](#implemented-resources)
+3. [Python versions](#python-versions)
+4. [Installation](#installation)
+5. [Usage](#usage)
+
 # Description
 
 This generator reads a CloudFormation template and generates a new CloudFormation only with an IAM role with all policies needed to deploy the initial CloudFormation.
