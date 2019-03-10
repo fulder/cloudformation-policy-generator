@@ -10,7 +10,7 @@ While creating e.g. a VPC lambda the role need to be able to not only `lambda:Cr
 
 # Implemented resources
 
-See: [IMPLEMENTATED_RESOURCES.md](https://github.com/fulder/cloudformation-policy-generator/blob/master/README.md) for a list of currently implemented resources.
+See: [IMPLEMENTATED_RESOURCES.md](https://github.com/fulder/cloudformation-policy-generator/blob/master/IMPLEMENTED_RESOURCES.md) for a list of currently implemented resources.
 
 # Python versions
 2.6, 2.7, 3.3+
