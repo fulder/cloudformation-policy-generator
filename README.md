@@ -4,12 +4,20 @@
 
 # Description
 
-This generator reads a CloudFormation template and generates the needed IAM policy needed to deploy all the specified resources.
+This generator reads a CloudFormation template and generates a new CloudFormation only with an IAM role with all policies needed to deploy the initial CloudFormation.
 
-While creating e.g. a VPC lambda the role need to be able to not only `lambda:CreateFunction` is required but also `lambda:DeleteFunction` if CloudFormation needs to be rolled back or `ec2:ReleaseAddress` to release the elastic IP address given to the lambda in the background.
+To deploy the IAM Role CloudFormation the following policy actions are needed:
+* `iam:CreateRole` 
+* `iam::DeleteRole`
+
+## Why/When to use this generator
+If you want to have an IAM role with more strict permissions only allowing to deploy a specific CloudFormation instead of always running with full Administrator permissions.
+
+It can somehow be hard to know exacly what permissions are needed for a resource. As an example creating a VPC lambda, the role need to be allowed `lambda:CreateFunction`, `lambda:DeleteFunction` but also e.g. `ec2:ReleaseAddress` to release the elastic IP address given to the lambda in the background and when the CloudFormation need to rollback.
 
 # Implemented resources
 
+This project is still in beta and all help/PR are welcome 
 See: [IMPLEMENTATED_RESOURCES.md](https://github.com/fulder/cloudformation-policy-generator/blob/master/IMPLEMENTED_RESOURCES.md) for a list of currently implemented resources.
 
 # Python versions
