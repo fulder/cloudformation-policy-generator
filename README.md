@@ -17,7 +17,7 @@ It can somehow be hard to know exacly what permissions are needed for a resource
 
 # Implemented resources
 
-This project is still in beta and all help/PR are welcome 
+This project is still in beta and all help/PRs are welcome.
 See: [IMPLEMENTATED_RESOURCES.md](https://github.com/fulder/cloudformation-policy-generator/blob/master/IMPLEMENTED_RESOURCES.md) for a list of currently implemented resources.
 
 # Python versions
@@ -30,7 +30,7 @@ See: [IMPLEMENTATED_RESOURCES.md](https://github.com/fulder/cloudformation-polic
 # Usage
 
 ### Generate policy
-* `python generate.py -f cloud_formation.yml`
+* `python generate.py -f cloud_formation.yml -r us-east-1 -a <AWS_ACCOUNT_NUMBER>`
 
 ### Save policy to file
-* `python generate.py -f cloud_formation.yml -o policy.json`
+* `python generate.py -f cloud_formation.yml -r us-east-1 -a <AWS_ACCOUNT_NUMBER> -o iam_cloudformation.yml`
