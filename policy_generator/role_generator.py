@@ -56,7 +56,6 @@ class RoleGenerator:
         role_cloudformation_str = json.dumps(self.role_cloud_formation)
         if "Parameters" in self.cloud_formation:
             for param_name in self.cloud_formation["Parameters"]:
-                print(param_name)
                 if param_name in role_cloudformation_str:
                     logger.debug("Copy parameter: [%s] from input cloudformation", param_name)
                     if "Parameters" not in self.role_cloud_formation:

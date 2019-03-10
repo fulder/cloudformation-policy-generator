@@ -245,7 +245,6 @@ class TestRoleGenerator(unittest.TestCase):
             }
         }
         role_cloud_formation = RoleGenerator(self.cloudformation, "us-east-1", "ABC123123").generate()
-        print(role_cloud_formation)
         self.assertEqual(self.cloudformation["Parameters"], role_cloud_formation["Parameters"])
 
     def test_ec2_instance(self):
